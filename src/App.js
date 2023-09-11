@@ -1,23 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import CartWidget from './components/CartWidget/CartWidget';
+import ItemListContainer from './components/ItemListContainer/ItemListContainer';
+import NavBar from './components/Navbar/NavBar';
+import { useState } from 'react';
 
 function App() {
+  const [contador, setContador] = useState(0)
+
+  function sumar ()  {
+    setContador ( contador +1 )
+
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    
+    <div className="container">
+      <NavBar  >
+        <CartWidget />
+      </NavBar>
+      <div>
+      <h1>Aqui iran los modelos de zapatillas</h1>
+      <h2>Cantidad de pedidos</h2>
+      <button onClick={sumar}>{contador} </button>
+      <ItemListContainer greeting= 'Zapatillas Nike'/>
+    </div>
     </div>
   );
 }
