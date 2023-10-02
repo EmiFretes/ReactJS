@@ -1,33 +1,22 @@
-import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import 'boxicons';
 
-import CartWidget from './components/CartWidget/CartWidget';
-import ItemListContainer from './components/ItemListContainer/ItemListContainer';
-import NavBar from './components/Navbar/NavBar';
-import { useState } from 'react';
+import { DataProvider } from "./context/Dataprovider"
+import { Header } from "./components/Header";
+import { Paginas } from './components/Paginas';
+import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 
-function App() {
-  const [contador, setContador] = useState(0)
+function App()  {
+  return(
+    <DataProvider> 
+    <div className="App">
+      <Router> 
+      <Header/>
 
-  function sumar ()  {
-    setContador ( contador +1 )
-
-  }
-
-
-  return (
-    
-    <div className="container">
-      <NavBar  >
-        <CartWidget />
-      </NavBar>
-      <div>
-      <h1>Aqui iran los modelos de zapatillas</h1>
-      <h2>Cantidad de pedidos</h2>
-      <button onClick={sumar}>{contador} </button>
-      <ItemListContainer greeting= 'Zapatillas Nike'/>
+      <Paginas/>
+      </Router>
     </div>
-    </div>
+    </DataProvider>
   );
 }
 
