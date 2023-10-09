@@ -1,8 +1,21 @@
+import React, {useContext} from 'react';
+
+import {DataContext} from "../../context/Dataprovider"
 import { Link } from 'react-router-dom';
 import Nike from '../../images/Nike.jpg';
-import React from 'react';
 
 export const Header = () => {
+  const value = useContext(DataContext);
+  const [menu, setMenu] = value.menu;
+  const [carrito] = value.carrito
+
+  const toogleMenu = () => {
+    setMenu(!menu)
+
+  }
+
+
+
 return (
     <header>
         <Link to='/'>
@@ -19,9 +32,9 @@ return (
           <Link to="/productos">PRODUCTOS</Link>
         </li>
       </ul>
-      <div className="cart">
+      <div className="cart" onClick={toogleMenu} >
         <box-icon name="cart"></box-icon>
-        <span className="item__total">0</span>
+        <span className="item__total">{carrito.length} </span>
       </div>
     </header>
   );

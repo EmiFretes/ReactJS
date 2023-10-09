@@ -1,5 +1,6 @@
 import 'boxicons';
 
+import {Carrito} from "./components/Carrito"
 import { DataProvider } from "./context/Dataprovider";
 import { Header } from "./components/Header";
 import { Paginas } from './components/Paginas';
@@ -12,6 +13,7 @@ function App() {
       <div className="App">
         <Router>
           <Header />
+          <Carrito />
           <Paginas />
         </Router>
       </div>
