@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 
 import {DataContext} from "../../context/Dataprovider"
 import { Link } from 'react-router-dom';
-import Nike from '../../images/Nike.jpg';
+import zenin from '../../images/zenin.jpg';
 
 export const Header = () => {
   const value = useContext(DataContext);
@@ -20,7 +20,7 @@ return (
     <header>
         <Link to='/'>
             <div className="logo">
-                <img src={Nike} alt='logo' width="150" />
+                <img src={zenin} alt='logo' width="150" />
                     <p className="logo-text">Zenin Shop</p>
             </div>
         </Link>

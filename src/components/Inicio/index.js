@@ -6,12 +6,12 @@ export const Inicio = () => {
   return (
     <div className='inicio'>
       <Link to='/'>
-        <h1>Inicio</h1>
+        <h1>Bienvenido a Zenin la mejor tienda de zapatillas</h1>
       </Link>
       <Link to='/productos'>
-        <h1>PRODUCTOS</h1>
+        <h2 className='iniColeccion'>Explora nuestra colección</h2>
       </Link>
-      <img src={Portada} alt="inicio" />
+      <img src={Portada} alt="Inicio" />
     </div>
   );
 }
