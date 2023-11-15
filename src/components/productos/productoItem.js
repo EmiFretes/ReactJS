@@ -1,8 +1,20 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
+import {collection, doc, getDoc, getDocs, getFirestore} from 'firebase/firestore'
 
 import { DataContext } from "../../context/Dataprovider";
 import { Link } from "react-router-dom"
+import { initializeApp } from 'firebase/app';
 
+const firebaseConfig = {
+    apiKey: "AIzaSyCmVPiuZ055dwngXBdpVDf-90Yb5moj1E8",
+    authDomain: "projrjs.firebaseapp.com",
+    projectId: "projrjs",
+    storageBucket: "projrjs.appspot.com",
+    messagingSenderId: "213519997109",
+    appId: "1:213519997109:web:ea9a5ad20dbd5f64f586fc"
+  };
+  
+  initializeApp(firebaseConfig);
 export const ProductoItem = ({
     id,
     title,
@@ -15,8 +27,29 @@ export const ProductoItem = ({
     const addCarrito = value.addCarrito;
 
 
+// const db = getFirestore( )
+
+// const itemRef = doc(db, "items", "id1")
+// getDoc(itemRef).then((documento) => {
+//     console.log (documento.data ())
+// })
+const [items, setItems] = useState([])
+useEffect (() => {
+    const db = getFirestore()
+    const itemCollection = collection(db, "items")
+    getDocs(itemCollection).then(res =>
+        setItems(res.docs.map((doc)=>({id: doc.id, ...doc.data() })))) 
+}, [])
+
+
+
+
 
     return (
+        
+
+
+        
         <div className='producto'>
             <Link to={`/producto/${id}`}>
                 <div className='producto__img'>

@@ -1,8 +1,20 @@
+import './index.css';
+
+import App from './App';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
+import {initializeApp} from 'firebase/app'
 import reportWebVitals from './reportWebVitals';
+
+const firebaseConfig = {
+  apiKey: "AIzaSyCmVPiuZ055dwngXBdpVDf-90Yb5moj1E8",
+  authDomain: "projrjs.firebaseapp.com",
+  projectId: "projrjs",
+  storageBucket: "projrjs.appspot.com",
+  messagingSenderId: "213519997109",
+  appId: "1:213519997109:web:ea9a5ad20dbd5f64f586fc"
+};
+initializeApp(firebaseConfig);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
