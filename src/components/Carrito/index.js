@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useState } from 'react'
 
 import Card from "../../images/img03.jpg"
 import { DataContext } from "../../context/Dataprovider"
@@ -8,6 +8,7 @@ export const Carrito = () => {
     const [menu, setMenu] = value.menu
     const [carrito, setCarrito] = value.carrito;
     const [total]=value.total;
+    const [isAnimating, setIsAnimating] = useState(false);
 
     const tooglefalse  = () =>{
         setMenu(false);
@@ -46,7 +47,13 @@ export const Carrito = () => {
         }
     }
 
-
+    const handleClick = () => {
+        setIsAnimating(true);
+        setTimeout(() => {
+          setIsAnimating(false);
+        }, 1000);
+        alert("Pagado!");
+      };
 
   return (
     <div className={show1}> 
@@ -87,8 +94,13 @@ export const Carrito = () => {
             </div>
 
             <div className="carrito__footer">
-                <h3>Total: ${total} </h3>
-                <button className="btn">Pagar</button>
+            <h3>Total: ${total} </h3>
+        <button
+          className={isAnimating ? "btn btn--large btn--pagado" : "btn"}
+          onClick={handleClick}
+        >
+          Pagar
+        </button>
             </div>
         </div>
     </div>
